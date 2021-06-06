@@ -7,6 +7,12 @@ body {
   margin: 50px;
 }
 
+.git-link {
+  text-align: center;
+  font-size: 8px;
+  margin-top: 10px;
+}
+
 .searchbar {
   border: 2.5px solid rgba(131, 163, 172, 0.793);
   border-radius: 10px;
