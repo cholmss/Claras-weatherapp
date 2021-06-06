@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=2.0" />
+
+    <title>Weather app by Clara</title>
+
+    <link rel="stylesheet" href="styles.css" />
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous" />
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+    <script src="https://kit.fontawesome.com/436cdae804.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="container">
+
+        <div class="wrapper">
+            <br />
+            <form id="search-bar">
+                <input id="search-input" class="searchbar" type="search" placeholder="Pick a city" autocomplete="off" autofocus />
+                <input id="search-button" type="submit">
+            </form>
+
+            <div class="row row-weather-today justify-content-center">
+
+                <div class="col-4">
+                    <p class="icon-weather-today"><i class="fas fa-sun"></i></p>
+                </div>
+
+                <div class="col-6 city-info">
+                   
+                    <ul class="selectedCityList">
+                    <li class="city-headline"> <span ID="city-temp">14</span>° <span ID="city-name">Stockholm</span></li>
+
+                    <li ID="todays-date" class="city-info">
+                    Today 
+                    <span ID="current-weekday">Friday </span> 
+                    <span ID="current-date">26</span>/<span ID="current-month">3 </span> 
+                    <span ID="current-hour">15</span>:<span ID="current-minute">03</span>
+                    </li>
+
+                    <li id="weather-description">Sunny</li>
+                    <li>Wind <span id="windspeed">4</span> m/s</li>
+                    </ul>
+                    
+                </div>
+
+            </div>
+
+
+            <div class="row row-weather-week justify-content-center align-items-center">
+
+                <div class="col-3 week-forecast">
+                    <p class="icon-weather-week"><i class="fas fa-cloud-sun"></i></p>
+                    <h1><span class="temp">14°</span>Saturday</h1>
+                </div>
+
+                <div class="col-3 week-forecast">
+                    <p class="icon-weather-week"><i class="fas fa-cloud-sun"></i></p>
+                    <h1><span class="temp">13°</span>Sunday</h1>
+                </div>
+
+                <div class="col-3 week-forecast">
+                    <p class="icon-weather-week"><i class="fas fa-poo-storm"></i></p>
+                    <h1><span class="temp">11°</span>Monday</h1>
+                </div>
+
+            </div>
+
+            <div class="row row-weather-week justify-content-center align-items-center">
+
+                <div class="col-3 week-forecast">
+                    <p class="icon-weather-week"><i class="fas fa-cloud-sun"></i></p>
+                    <h1><span class="temp">11°</span>Tuesday</h1>
+                </div>
+
+                <div class="col-3 week-forecast">
+                    <p class="icon-weather-week"><i class="fas fa-sun"></i></p>
+                    <h1><span class="temp">17°</span>Wednesday</h1>
+                </div>
+
+                <div class="col-3 week-forecast">
+                    <p class="icon-weather-week"><i class="fas fa-cloud-sun"></i></p>
+                    <h1><span class="temp">11°</span>Thursday</h1>
+                </div>
+
+            </div>
+            <button Id="location-button">My local weather </button>
+        </div>
+
+
+        <script src="script.js"></script>
+</body>
+
+</html>
