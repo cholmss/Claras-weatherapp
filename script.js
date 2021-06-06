@@ -55,7 +55,7 @@ function showWeather(response) {
   document.querySelector(`#city-temp`).innerHTML = Math.round(
     response.data.main.temp
   );
-  //capitalize first letter?
+
   document.querySelector(`#weather-description`).innerHTML =
     response.data.weather[0].description;
   document.querySelector(`#windspeed`).innerHTML = Math.round(

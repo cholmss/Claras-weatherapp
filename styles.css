@@ -110,3 +110,7 @@ body {
   height: 530px;
   margin: 0 auto;
 }
+
+#weather-description {
+  text-transform: capitalize;
+}
