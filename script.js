@@ -46,7 +46,7 @@ function handleSubmit(event) {
 }
 
 function apiWeatherRequest(city) {
-  let apiUrl = `http://api.openweathermap.org/data/2.5/weather?q=${city}&units=${unit}&appid=${apiKey}`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=${unit}&appid=${apiKey}`;
   axios.get(apiUrl).then(showWeather);
 }
 
@@ -69,7 +69,7 @@ function getLocation(event) {
 }
 
 function apiLocalWeatherRequest(position) {
-  let apiUrl = `http://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&units=${unit}&appid=${apiKey}`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&units=${unit}&appid=${apiKey}`;
   axios.get(apiUrl).then(showWeather);
 }
 
