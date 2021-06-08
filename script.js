@@ -41,8 +41,8 @@ function showTime(now) {
 
 function handleSubmit(event) {
   event.preventDefault();
-  let citySearch = document.querySelector("#search-input").value;
-  apiWeatherRequest(citySearch);
+  let citySearch = document.querySelector("#search-input");
+  apiWeatherRequest(citySearch.value);
 }
 
 function apiWeatherRequest(city) {
@@ -73,7 +73,6 @@ function apiLocalWeatherRequest(position) {
   axios.get(apiUrl).then(showWeather);
 }
 
-let now = new Date();
 let unit = `metric`;
 let apiKey = `35aadbc5c927a4d6e9fe4adb5ae41cf4`;
 
@@ -84,5 +83,5 @@ let buttonLocation = document.querySelector("#location-button");
 buttonLocation.addEventListener("click", getLocation);
 
 apiWeatherRequest(`Paris`);
-showTime(now);
-showDate(now);
+showTime(new Date());
+showDate(new Date());
