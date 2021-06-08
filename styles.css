@@ -7,10 +7,14 @@ body {
   font-weight: bolder;
 }
 
-.linkstyle {
-  color: #000000;
-  font-size: 13px;
-  text-decoration: none;
+.city-info {
+  padding-left: 0px;
+}
+
+.city-headline {
+  font-size: 29px;
+  margin-left: 80px;
+  margin-bottom: 0;
 }
 
 .container {
@@ -24,6 +28,24 @@ body {
   margin-top: 10px;
 }
 
+.icon-weather-week {
+  font-size: 30px;
+  margin: 0;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.274);
+  color: #464c6bdc;
+}
+
+.linkstyle {
+  color: #000000;
+  font-size: 13px;
+  text-decoration: none;
+}
+
+.row-weather-week {
+  margin-top: 30px;
+  height: 100px;
+}
+
 .searchbar {
   border: 2.5px solid rgba(131, 163, 172, 0.793);
   border-radius: 10px;
@@ -35,15 +57,11 @@ body {
   margin: 20px auto 30px;
 }
 
-#search-button {
-  display: none;
-}
-
 .searchbar:focus {
   outline: none;
 }
 
-.selectedCityList {
+.selectedCityInfo {
   list-style-type: none;
   font-size: 12px;
   line-height: 18px;
@@ -51,14 +69,33 @@ body {
   padding: 0;
 }
 
-.city-headline {
-  font-size: 29px;
-  margin-left: 80px;
-  margin-bottom: 0;
+.temp {
+  color: #000000;
+  font-weight: bold;
 }
 
-.city-info {
-  padding-left: 0px;
+.weather-icon {
+  width: 120px;
+  margin-top: -25px;
+}
+
+.week-forecast {
+  text-align: center;
+  vertical-align: middle;
+}
+
+.week-forecast h1 {
+  font-size: 12px;
+  font-weight: lighter;
+}
+
+.wrapper {
+  background-image: linear-gradient(to top, #b8b0b040 0%, #168ec6ab 100%);
+  border-radius: 20px;
+  box-shadow: 7px 4px 10px rgba(0, 0, 0, 0.1);
+  max-width: 450px;
+  height: 575px;
+  margin: 0 auto;
 }
 
 #location-button {
@@ -72,48 +109,8 @@ body {
   font-size: 12px;
 }
 
-.row-weather-week {
-  height: 115px;
-}
-
-.row-weather-week {
-  height: 115px;
-}
-
-.week-forecast {
-  text-align: center;
-  vertical-align: middle;
-}
-
-.week-forecast h1 {
-  font-size: 12px;
-  font-weight: lighter;
-}
-
-.icon-weather-week {
-  font-size: 30px;
-  margin: 0;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.274);
-  color: #3138568e;
-}
-
-.temp {
-  color: #000000;
-  font-weight: bold;
-}
-
-.wrapper {
-  background-image: linear-gradient(to top, #b8b0b040 0%, #168ec6ab 100%);
-  border-radius: 20px;
-  box-shadow: 7px 4px 10px rgba(0, 0, 0, 0.1);
-  max-width: 450px;
-  height: 575px;
-  margin: 0 auto;
-}
-
-.weather-icon {
-  width: 120px;
-  margin-top: -25px;
+#search-button {
+  display: none;
 }
 
 #weather-description {
