@@ -3,6 +3,16 @@ body {
   height: 1000px;
 }
 
+.active {
+  font-weight: bolder;
+}
+
+.linkstyle {
+  color: #000000;
+  font-size: 13px;
+  text-decoration: none;
+}
+
 .container {
   padding: 0px;
   margin: 50px;
@@ -103,7 +113,7 @@ body {
 
 .weather-icon {
   width: 120px;
-  margin-top: -20px;
+  margin-top: -25px;
 }
 
 #weather-description {

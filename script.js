@@ -68,6 +68,11 @@ function showWeather(response) {
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   weatherIcon.setAttribute(`alt`, response.data.weather[0].description);
+
+  showTime(new Date());
+  showDate(new Date());
+
+  celsiusTemp = response.data.main.temp;
 }
 
 function getLocation(event) {
@@ -80,8 +85,26 @@ function apiLocalWeatherRequest(position) {
   axios.get(apiUrl).then(showWeather);
 }
 
+function convertFahrenheit(event) {
+  event.preventDefault();
+  document.querySelector(`#city-temp`).innerHTML = Math.round(
+    (celsiusTemp * 9) / 5 + 32
+  );
+  fahrenheitLink.classList.add(`active`);
+  celsiusLink.classList.remove(`active`);
+}
+
+function convertCelsius(event) {
+  event.preventDefault();
+  document.querySelector(`#city-temp`).innerHTML = Math.round(celsiusTemp);
+  celsiusLink.classList.add(`active`);
+  fahrenheitLink.classList.remove(`active`);
+}
+
 let unit = `metric`;
 let apiKey = `35aadbc5c927a4d6e9fe4adb5ae41cf4`;
+
+let celsiusTemp = null;
 
 let searchBar = document.querySelector("#search-bar");
 searchBar.addEventListener("submit", handleSubmit);
@@ -89,6 +112,10 @@ searchBar.addEventListener("submit", handleSubmit);
 let buttonLocation = document.querySelector("#location-button");
 buttonLocation.addEventListener("click", getLocation);
 
+let fahrenheitLink = document.querySelector(`#fahrenheitLink`);
+fahrenheitLink.addEventListener(`click`, convertFahrenheit);
+
+let celsiusLink = document.querySelector(`#celsiusLink`);
+celsiusLink.addEventListener(`click`, convertCelsius);
+
 apiWeatherRequest(`Paris`);
-showTime(new Date());
-showDate(new Date());
