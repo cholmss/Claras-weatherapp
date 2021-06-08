@@ -28,28 +28,27 @@
                 <input id="search-button" type="submit">
             </form>
 
+            <div class="row">
+            <p class="city-headline"><span ID="city-temp">14</span>° <span ID="city-name">Stockholm</span></p>
+            </div>
+            
             <div class="row row-weather-today justify-content-center">
 
-                <div class="col-4">
-                    <p class="icon-weather-today"><i class="fas fa-sun"></i></p>
-                </div>
-
-                <div class="col-6 city-info">
-                   
+                <div class="col-4 city-info">
                     <ul class="selectedCityList">
-                    <li class="city-headline"> <span ID="city-temp">14</span>° <span ID="city-name">Stockholm</span></li>
-
-                    <li ID="todays-date" class="city-info">
-                    Today 
-                    <span ID="current-weekday">Friday </span> 
-                    <span ID="current-date">26</span>/<span ID="current-month">3 </span> 
-                    <span ID="current-hour">15</span>:<span ID="current-minute">03</span>
+                    <li id="todays-date" class="city-info">
+                    <span id="current-weekday">Friday </span> <span id="current-date">26</span>/<span ID="current-month">3 </span> 
                     </li>
-
                     <li id="weather-description">Sunny</li>
                     <li>Wind <span id="windspeed">4</span> m/s</li>
-                    </ul>
-                    
+                    <li>
+                    Updated <span id="current-hour">15</span>:<span ID="current-minute">03</span>
+                    </li>
+                    </ul>           
+                </div>
+
+                <div class="col-4">
+                    <img id="weather-icon" class="weather-icon" src="" alt="">
                 </div>
 
             </div>
