@@ -69,9 +69,19 @@ body {
   padding: 0;
 }
 
-.temp {
+.forecast {
+  margin-top: -18px;
+}
+
+.forecast-temp {
   color: #000000;
   font-weight: bold;
+  font-size: 11px;
+}
+
+.forecast-day {
+  color: #e23b3b;
+  font-size: 11px;
 }
 
 .weather-icon {
@@ -104,7 +114,7 @@ body {
   border-style: solid;
   background-color: white;
   display: block;
-  margin: 10px auto 0px;
+  margin: 40px auto 0px;
   padding: 8px 14px;
   font-size: 12px;
 }
