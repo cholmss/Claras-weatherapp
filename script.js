@@ -101,48 +101,35 @@ function convertCelsius(event) {
   fahrenheitLink.classList.remove(`active`);
 }
 
-function weekForecastHtml() {
+function weekForecast(response) {
   let weekForecastDiv = document.querySelector("#weeklyForecast");
   let firstThreeDays = [`Mon`, `Tue`, `Wed`];
   let lastThreeDays = [`Thu`, `Fri`, `Sat`];
 
-  let weekForecastHtml = `<div class="row row-weather-week justify-content-center">`;
-
-  firstThreeDays.forEach(function (day) {
-    weekForecastHtml += `         
-          <div class="col-3 week-forecast">
-            <img
-              src="http://openweathermap.org/img/wn/10d@2x.png"
-              alt="weather-icon"
-            />
-            <div class="forecast-info">
-              <span class="forecast-temp" id="forecast-temp">14°</span>
-              <span class="forecast-day" id="forcast-day">${day}</span>
-            </div>
-          </div>
-          `;
-  });
-
+  firstThreeDays.forEach(formatHtml);
   weekForecastHtml += `</div> <div class="row row-weather-week justify-content-center">`;
+  lastThreeDays.forEach(formatHtml);
+  weekForecastHtml += `</div>`;
 
-  lastThreeDays.forEach(function (day) {
-    weekForecastHtml += `         
-          <div class="col-3 week-forecast">
-            <img
-              src="http://openweathermap.org/img/wn/10d@2x.png"
-              alt="weather-icon"
-            />
-            <div class="forecast-info">
-              <span class="forecast-temp" id="forecast-temp">14°</span>
-              <span class="forecast-day" id="forcast-day">${day}</span>
-            </div>
-          </div>
-          `;
-  });
-
-  weekForecastHtml += `</div> </div>`;
   weekForecastDiv.innerHTML = weekForecastHtml;
 }
+
+function formatHtml(day) {
+  return (weekForecastHtml += `         
+          <div class="col-3 week-forecast">
+            <img
+              src="http://openweathermap.org/img/wn/10d@2x.png"
+              alt="weather-icon"
+            />
+            <div class="forecast-info">
+              <span class="forecast-temp" id="forecast-temp">14°</span>
+              <span class="forecast-day" id="forcast-day">${day}</span>
+            </div>
+          </div>
+          `);
+}
+
+let weekForecastHtml = `<div class="row row-weather-week justify-content-center">`;
 
 let unit = `metric`;
 let apiKey = `35aadbc5c927a4d6e9fe4adb5ae41cf4`;
@@ -162,4 +149,4 @@ let celsiusLink = document.querySelector(`#celsiusLink`);
 celsiusLink.addEventListener(`click`, convertCelsius);
 
 apiWeatherRequest(`Paris`);
-weekForecastHtml();
+weekForecast();
