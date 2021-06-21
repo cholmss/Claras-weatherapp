@@ -45,9 +45,47 @@ function handleSubmit(event) {
   apiWeatherRequest(citySearch.value);
 }
 
-function apiWeatherRequest(city) {
+function apiRequest(city) {
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=${unit}&appid=${apiKey}`;
   axios.get(apiUrl).then(showWeather);
+}
+
+function apiRequestWeek(coordinates) {
+  let apiUrlWeek = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&units=${unit}&appid=${apiKey}`;
+  axios.get(apiUrlWeek).then(showWeekForecast);
+}
+
+function formatHtml(apiData) {
+  return (weekForecastHtml += `         
+          <div class="col-3 week-forecast">
+            <img
+              src="http://openweathermap.org/img/wn/${apiData.weather[0].icon}@2x.png"
+              alt="weather-icon"
+            />
+            <div class="forecast-info">
+              <span class="forecast-temp" id="forecast-temp">${apiData.temp.day}</span>
+              <span class="forecast-day" id="forcast-day">${day}</span>
+            </div>
+          </div>
+          `);
+}
+
+function showWeekForecast(response, index) {
+  let apiWeekdata = response.data.daily;
+  let weekForecastDiv = document.querySelector("#weeklyForecast");
+  console.log(index);
+
+  if (index < 3) {
+    apiWeekdata.forEach(formatHtml);
+    weekForecastHtml += `</div> <div class="row row-weather-week justify-content-center">`;
+  }
+
+  if (index > 2 && index < 6) {
+    i;
+    apiWeekdata.forEach(formatHtml);
+    weekForecastHtml += `</div>`;
+  }
+  weekForecastDiv.innerHTML = weekForecastHtml;
 }
 
 function showWeather(response) {
@@ -72,6 +110,7 @@ function showWeather(response) {
   showTime(new Date());
   showDate(new Date());
 
+  apiRequestWeek(response.data.coord);
   celsiusTemp = response.data.main.temp;
 }
 
@@ -101,34 +140,6 @@ function convertCelsius(event) {
   fahrenheitLink.classList.remove(`active`);
 }
 
-function weekForecast(response) {
-  let weekForecastDiv = document.querySelector("#weeklyForecast");
-  let firstThreeDays = [`Mon`, `Tue`, `Wed`];
-  let lastThreeDays = [`Thu`, `Fri`, `Sat`];
-
-  firstThreeDays.forEach(formatHtml);
-  weekForecastHtml += `</div> <div class="row row-weather-week justify-content-center">`;
-  lastThreeDays.forEach(formatHtml);
-  weekForecastHtml += `</div>`;
-
-  weekForecastDiv.innerHTML = weekForecastHtml;
-}
-
-function formatHtml(day) {
-  return (weekForecastHtml += `         
-          <div class="col-3 week-forecast">
-            <img
-              src="http://openweathermap.org/img/wn/10d@2x.png"
-              alt="weather-icon"
-            />
-            <div class="forecast-info">
-              <span class="forecast-temp" id="forecast-temp">14°</span>
-              <span class="forecast-day" id="forcast-day">${day}</span>
-            </div>
-          </div>
-          `);
-}
-
 let weekForecastHtml = `<div class="row row-weather-week justify-content-center">`;
 
 let unit = `metric`;
@@ -148,5 +159,4 @@ fahrenheitLink.addEventListener(`click`, convertFahrenheit);
 let celsiusLink = document.querySelector(`#celsiusLink`);
 celsiusLink.addEventListener(`click`, convertCelsius);
 
-apiWeatherRequest(`Paris`);
-weekForecast();
+apiRequest(`Paris`);
